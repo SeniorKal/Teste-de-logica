@@ -94,4 +94,4 @@ Se o programa terminar sem mensagens e retornar código `0`, todos os testes pas
 
 ## Uso do Codex
 
-O Codex ajudou a organizar o código em funções, revisar os comentários, completar a documentação e criar testes automatizados. As mudanças devem ser revisadas pelo autor antes da entrega.
+O Codex ajudou a organizar o código em funções, revisar os comentários, completar a documentação e criar testes automatizados. 

@@ -1,22 +1,39 @@
 #include <stdio.h>
 
-int main() {
-    int posicao = 0;
-    int numeros[14] = {2, 1, 5, 2, 5, 2, 1, 1, 1, 7, 9, 13, 127, 21};
-    for (int i = 0; i < 14; i++) {
+#include "Pergunta_1.h"
+
+void mover_uns_para_inicio(int numeros[], size_t tamanho) {
+    size_t proxima_posicao = 0;
+
+    for (size_t i = 0; i < tamanho; i++) {
         if (numeros[i] == 1) {
             int temp = numeros[i];
 
-        for (int y = i; y > posicao; y--) {
-            numeros[y] = numeros[y - 1];
-        }
+            /* Abre espaço sem trocar a ordem dos elementos anteriores. */
+            for (size_t j = i; j > proxima_posicao; j--) {
+                numeros[j] = numeros[j - 1];
+            }
 
-        numeros[posicao] = temp;
-        posicao++;
+            numeros[proxima_posicao] = temp;
+            proxima_posicao++;
         }
     }
-    for (int i = 0; i < 14; i++) {
+}
+
+void imprimir_numeros(const int numeros[], size_t tamanho) {
+    for (size_t i = 0; i < tamanho; i++) {
         printf("%d\n", numeros[i]);
     }
-return 0;
 }
+
+#ifndef TESTE
+int main(void) {
+    int numeros[] = {2, 1, 5, 2, 5, 2, 1, 1, 1, 7, 9, 13, 127, 21};
+    size_t tamanho = sizeof(numeros) / sizeof(numeros[0]);
+
+    mover_uns_para_inicio(numeros, tamanho);
+    imprimir_numeros(numeros, tamanho);
+
+    return 0;
+}
+#endif

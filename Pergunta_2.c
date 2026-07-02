@@ -51,38 +51,44 @@ No* criar_fruteira (){
     return maca;
 }
 
-int buscar_fruta(No* raiz, const char* fruta) {
+int buscar_fruta(No* raiz, const char* fruta, char* caminho, size_t tamanho_caminho) {
     if (raiz == NULL) {
-        return 0; // Fruta não encontrada
+        return 0;
     }
-    printf("%s\n", raiz->nome);
+
+    size_t tamanho_usado = strlen(caminho);
+    snprintf(
+        caminho + tamanho_usado,
+        tamanho_caminho - tamanho_usado,
+        "%s%s",
+        tamanho_usado == 0 ? "" : " -> ",
+        raiz->nome
+    );
 
     if (strcmp(raiz->nome, fruta) == 0) {
-        return 1; // Fruta encontrada
+        return 1;
     }
 
-    // Buscar na subárvore esquerda e direita
-    return buscar_fruta(raiz->esquerda, fruta) || buscar_fruta(raiz->direita, fruta);
+    if (buscar_fruta(raiz->esquerda, fruta, caminho, tamanho_caminho) ||
+        buscar_fruta(raiz->direita, fruta, caminho, tamanho_caminho)) {
+        return 1;
+    }
+
+    caminho[tamanho_usado] = '\0';
+    return 0;
 }
-
-
-
 
 
 
 int main(void){
-char fruta[20];
-No* fruteira = criar_fruteira();
-printf("Digite o nome da fruta que deseja buscar: ");
-scanf("%19s", fruta);
-
-if (buscar_fruta(fruteira, fruta)) {
-    printf("A fruta '%s' foi encontrada na fruteira.\n", fruta);
-} else {
-    printf("A fruta '%s' não foi encontrada na fruteira.\n", fruta);
-
-}
-return 0;
+    char fruta[20];
+    char caminho[256] = "";
+    No* fruteira = criar_fruteira();
+    printf("Digite o nome da fruta que deseja buscar: ");
+    scanf("%19s", fruta);
+    int encontrada = buscar_fruta(fruteira, fruta, caminho, sizeof(caminho));
+    printf("%s\n", encontrada ? caminho : "Fruta não encontrada.");
+    return 0;
 
 }
 

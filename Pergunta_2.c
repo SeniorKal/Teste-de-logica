@@ -2,14 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-typedef struct No{
-    char nome[20];
-
-    struct No* esquerda;
-    struct No* direita;
-    
-}No;
+#include "Pergunta_2.h"
 
 No* criar_no(const char* nome) {
     No* novo_no = (No*)malloc(sizeof(No));
@@ -24,8 +17,7 @@ No* criar_no(const char* nome) {
     return novo_no;
 }
 
-
-No* criar_fruteira (){
+No* criar_fruteira(void) {
     No* maca = criar_no("Maçã");
     No* morango = criar_no("Morango");
     No* pera = criar_no("Pera");
@@ -74,21 +66,24 @@ int buscar_fruta(No* raiz, const char* fruta, char* caminho, size_t tamanho_cami
         return 1;
     }
 
+    /* Remove o nó atual do caminho ao retroceder na busca. */
     caminho[tamanho_usado] = '\0';
     return 0;
 }
 
-
-
-int main(void){
+#ifndef TESTE
+int main(void) {
     char fruta[20];
     char caminho[256] = "";
     No* fruteira = criar_fruteira();
+
     printf("Digite o nome da fruta que deseja buscar: ");
     scanf("%19s", fruta);
+
     int encontrada = buscar_fruta(fruteira, fruta, caminho, sizeof(caminho));
     printf("%s\n", encontrada ? caminho : "Fruta não encontrada.");
-    return 0;
 
+    return 0;
 }
+#endif
 

@@ -2,7 +2,9 @@
 
 ## Ferramentas utilizadas
 
-Foram utilizados o ChatGPT e o Codex.
+Foram utilizados o ChatGPT, o Codex e o GitHub Copilot.
+
+Durante o desenvolvimento, o GitHub Copilot também foi utilizado para sugestões pontuais de código, como autocomplete e sintaxe. Todas as sugestões foram revisadas, adaptadas quando necessário e testadas manualmente antes de serem incorporadas.
 
 ## Como as ferramentas ajudaram
 
@@ -36,3 +38,16 @@ Nesta etapa, somente o Codex foi utilizado. A ferramenta ajudou a:
 A lógica e a ordem da busca original foram mantidas e revisadas, sem mudança na estratégia.
 
 A solução foi testada localmente com frutas existentes, como `Banana` e `Laranja`, e com uma fruta inexistente, como `Uva`, para validar tanto o caminho encontrado quanto o caso de não encontrado.
+
+## Etapa da Pergunta 3
+
+Nesta etapa, o Codex foi utilizado apenas para:
+
+- organização do código;
+- melhoria da documentação;
+- criação de testes automatizados;
+- revisão de comentários.
+
+A lógica da solução e a forma de buscar a combinação já existiam e não foram criadas pela IA.
+
+A solução foi validada manualmente com valores que possuem combinação e valores que não possuem combinação, confirmando o comportamento nos dois casos.

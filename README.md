@@ -1,6 +1,6 @@
 # Teste de Lógica
 
-Este repositório contém as soluções das Perguntas 1 e 2 do teste de lógica, desenvolvidas em C.
+Este repositório contém as soluções das Perguntas 1, 2 e 3 do teste de lógica, desenvolvidas em C.
 
 ## Pré-requisitos
 
@@ -15,17 +15,24 @@ Este repositório contém as soluções das Perguntas 1 e 2 do teste de lógica,
 - `Pergunta_2.c`: árvore de frutas, busca e exemplo de execução
 - `Pergunta_2.h`: estrutura do nó e declaração das funções
 - `teste_pergunta_2.c`: testes automatizados da busca
+- `Pergunta_3.c`: busca de uma combinação de dois números
+- `Pergunta_3.h`: declaração da função da Pergunta 3
+- `teste_pergunta_3.c`: testes automatizados das combinações
 - `uso_de_ia.md`: descrição de como a IA foi utilizada
 
 ## Pergunta 1 - Array com números 1 à esquerda
 
-### Como compilar e executar
+A Pergunta 1 move todos os números `1` para o início do array sem alterar a ordem relativa dos demais elementos.
+
+### Como compilar
 
 Compile a solução com todos os avisos habilitados:
 
 ```bash
 gcc -std=c11 -Wall -Wextra -Wpedantic Pergunta_1.c -o Pergunta_1
 ```
+
+### Como executar
 
 Execute no Linux ou macOS:
 
@@ -39,7 +46,7 @@ Execute no Windows:
 .\Pergunta_1.exe
 ```
 
-### Entrada
+### Exemplo de entrada
 
 O exemplo usa o array definido no `main`:
 
@@ -77,6 +84,8 @@ Assim, todos os números `1` ficam no começo e a ordem relativa dos outros valo
 
 ### Testes automatizados
 
+Os testes validam um array misto, um array sem números `1` e um array formado somente por números `1`.
+
 Compile os testes:
 
 ```bash
@@ -97,22 +106,19 @@ Execute no Windows:
 
 Se o programa terminar sem mensagens e retornar código `0`, todos os testes passaram.
 
-## Uso do Codex
-
-O Codex ajudou a organizar o código em funções, revisar os comentários, completar a documentação e criar testes automatizados. 
-As mudanças foram revisadas manualmente antes de serem incorporadas ao projeto.
-
-## Pergunta 2
+## Pergunta 2 - Busca de fruta em árvore binária
 
 A Pergunta 2 representa uma fruteira como uma árvore binária e busca uma fruta pelo nome.
 
-### Como compilar e executar
+### Como compilar
 
 Compile a solução com todos os avisos habilitados:
 
 ```bash
 gcc -std=c11 -Wall -Wextra -Wpedantic Pergunta_2.c -o Pergunta_2
 ```
+
+### Como executar
 
 Execute no Linux ou macOS:
 
@@ -177,3 +183,82 @@ Execute no Windows:
 ```
 
 Se o programa terminar sem mensagens e retornar código `0`, todos os testes passaram.
+
+## Pergunta 3 - Soma de dois elementos
+
+A Pergunta 3 verifica se dois elementos distintos do array resultam em um valor informado.
+
+### Como compilar
+
+Compile a solução com todos os avisos habilitados:
+
+```bash
+gcc -std=c11 -Wall -Wextra -Wpedantic Pergunta_3.c -o Pergunta_3
+```
+
+### Como executar
+
+Execute no Linux ou macOS:
+
+```bash
+./Pergunta_3
+```
+
+Execute no Windows:
+
+```powershell
+.\Pergunta_3.exe
+```
+
+### Exemplo de entrada
+
+```text
+9
+```
+
+### Saída esperada
+
+```text
+[1, 15, 2, 7, 2, 5, 7, 1, 4]
+Digite um numero para verificar se existe soma de dois elementos que resulta nele: 9
+Existe uma combinação que resulta em: 9
+```
+
+### Estratégia adotada
+
+A função `existe_soma` percorre o array com dois laços. Para cada elemento, ela compara somente os elementos das posições seguintes e retorna `true` ao encontrar um par cuja soma seja igual ao valor informado.
+
+Se nenhum par produzir o valor procurado, a função retorna `false`.
+
+- Complexidade de tempo: `O(n²)` no pior caso
+- Complexidade de espaço: `O(1)`
+
+### Testes automatizados
+
+Os testes validam combinações para `9` e `20`, a ausência de combinação para `100`, um array vazio e um array com apenas um elemento.
+
+Compile os testes:
+
+```bash
+gcc -std=c11 -Wall -Wextra -Wpedantic -DTESTE Pergunta_3.c teste_pergunta_3.c -o teste_pergunta_3
+```
+
+Execute no Linux ou macOS:
+
+```bash
+./teste_pergunta_3
+```
+
+Execute no Windows:
+
+```powershell
+.\teste_pergunta_3.exe
+```
+
+Se o programa terminar sem mensagens e retornar código `0`, todos os testes passaram.
+
+## Uso do Codex
+
+O Codex ajudou a organizar o código em funções, revisar os comentários, completar a documentação e criar testes automatizados.
+
+As mudanças foram revisadas manualmente antes de serem incorporadas ao projeto.

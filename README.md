@@ -344,8 +344,6 @@ Execute no Windows:
 
 Se o programa terminar sem mensagens e retornar código `0`, todos os testes passaram.
 
-## Uso do Codex
+## Uso de IA
 
-O Codex ajudou a organizar o código em funções, revisar os comentários, completar a documentação e criar testes automatizados.
-
-As mudanças foram revisadas manualmente antes de serem incorporadas ao projeto.
+O uso de ferramentas de IA está documentado no arquivo `uso_de_ia.md`.

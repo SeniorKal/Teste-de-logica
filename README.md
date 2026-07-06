@@ -1,6 +1,6 @@
 # Teste de Lógica
 
-Este repositório contém as soluções das Perguntas 1, 2 e 3 do teste de lógica, desenvolvidas em C.
+Este repositório contém as soluções das Perguntas 1, 2, 3 e 4 do teste de lógica, desenvolvidas em C.
 
 ## Pré-requisitos
 
@@ -18,6 +18,9 @@ Este repositório contém as soluções das Perguntas 1, 2 e 3 do teste de lógi
 - `Pergunta_3.c`: busca de uma combinação de dois números
 - `Pergunta_3.h`: declaração da função da Pergunta 3
 - `teste_pergunta_3.c`: testes automatizados das combinações
+- `Pergunta_4.c`: preenchimento de um intervalo numérico
+- `Pergunta_4.h`: declaração das funções da Pergunta 4
+- `teste_pergunta_4.c`: testes automatizados dos intervalos
 - `uso_de_ia.md`: descrição de como a IA foi utilizada
 
 ## Pergunta 1 - Array com números 1 à esquerda
@@ -253,6 +256,79 @@ Execute no Windows:
 
 ```powershell
 .\teste_pergunta_3.exe
+```
+
+Se o programa terminar sem mensagens e retornar código `0`, todos os testes passaram.
+
+## Pergunta 4 - Completar intervalo numérico
+
+A Pergunta 4 encontra o maior número de um array e preenche o próprio array com todos os valores de `0` até esse maior número.
+
+### Como compilar
+
+Compile a solução com todos os avisos habilitados:
+
+```bash
+gcc -std=c11 -Wall -Wextra -Wpedantic Pergunta_4.c -o Pergunta_4
+```
+
+### Como executar
+
+Execute no Linux ou macOS:
+
+```bash
+./Pergunta_4
+```
+
+Execute no Windows:
+
+```powershell
+.\Pergunta_4.exe
+```
+
+### Exemplo de entrada
+
+O exemplo usa o array definido no `main`:
+
+```text
+[9, 2, 3, 1, 4]
+```
+
+### Saída esperada
+
+```text
+0 1 2 3 4 5 6 7 8 9
+```
+
+### Estratégia adotada
+
+A função `encontrar_maior` percorre o array para identificar o maior valor. O tamanho final é calculado como esse valor mais `1`.
+
+Em seguida, `completar_intervalo` sobrescreve o próprio array com os números de `0` até o maior valor, e `printArray` imprime o resultado.
+
+- Complexidade de tempo: `O(n + m)`, sendo `n` o tamanho original e `m` o tamanho do intervalo final
+- Complexidade de espaço: `O(1)`
+
+### Testes automatizados
+
+Os testes validam o array do enunciado, um array já completo, um array com apenas um elemento e outro array fora de ordem.
+
+Compile os testes:
+
+```bash
+gcc -std=c11 -Wall -Wextra -Wpedantic -DTESTE Pergunta_4.c teste_pergunta_4.c -o teste_pergunta_4
+```
+
+Execute no Linux ou macOS:
+
+```bash
+./teste_pergunta_4
+```
+
+Execute no Windows:
+
+```powershell
+.\teste_pergunta_4.exe
 ```
 
 Se o programa terminar sem mensagens e retornar código `0`, todos os testes passaram.

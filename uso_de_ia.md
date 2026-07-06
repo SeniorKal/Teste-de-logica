@@ -51,3 +51,14 @@ Nesta etapa, o Codex foi utilizado apenas para:
 A lógica da solução e a forma de buscar a combinação já existiam e não foram criadas pela IA.
 
 A solução foi validada manualmente com valores que possuem combinação e valores que não possuem combinação, confirmando o comportamento nos dois casos.
+
+## Etapa da Pergunta 4
+
+A lógica inicial da Pergunta 4 já havia sido implementada manualmente. Nesta etapa, o Codex foi utilizado apenas para:
+
+- organização do código;
+- melhoria da documentação;
+- revisão de comentários;
+- criação de testes automatizados.
+
+A estratégia original foi mantida. As mudanças foram revisadas manualmente, e a solução foi testada localmente após as alterações.
